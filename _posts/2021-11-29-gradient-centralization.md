@@ -67,14 +67,13 @@ On le verra par la suite, cette méthode peut être vu de façon géométrique c
 
 L'éfficacité de l'entraînement des réseaux de neurones dépend beaucoup des techniques d'optimization employées.
 
-Le choix d'un optimiseur (Adam, RMSProp, Nesterov, etc) se fait généralement sur deux critères :
+Le choix d'un optimiseur (Adam, RMSProp, Nesterov, etc) se fait généralement sur deux critères:
 
 1. L'accélération de l'entraînement qui en résulte.
 2. L'amélioration de la capacité de généralisation du réseau.
 
 D'autres techniques d'optimisation existent :
-
-- Les méthodes d'initialisation des poids (He, Xavierc etc),
+- Les méthodes d'initialisation des poids (He, Xavier etc),
 - Le choix des fonctions d'activations (ReLU, mish),
 - Le clipping du gradient,
 - Mettre en place un taux d'apprentissage adaptatif.
@@ -91,29 +90,23 @@ L'article apporte deux contributions :
 ### Définition
 
 1. Une fonction $$f$$ entre deux espaces métriques $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz s'il existe une constante $$C >0$$ telle que :
-
 $$
     \forall x, y \in X, d_{2}(f(x), f(y)) \leq C d_{1}(x,y).
 $$
-
 En particulier, la fonction $$f$$ est continue.
-
 2. Une fonction différentiable $$f$$ entre deux espaces normés $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz lisse s'il existe une constante $$C >0$$ telle que :
-
 $$
     \forall x, y \in X, \| \nabla f(x) - \nabla f(y) \| \leq C \| x - y \|.
 $$
-
 ($$C$$-Lipschitz continuous gradient)
-
 3. La constante $$C$$ est appélée la constante de Lipschitz de $$f$$.
 
 ### Infos
 
-    - [Lipschitz Smoothness, Strong Convexity and the Hessian](https://math.stackexchange.com/questions/673898/lipschitz-smoothness-strong-convexity-and-the-hessian)
-    - [Lipschitz continuous gradient](https://xingyuzhou.org/blog/notes/Lipschitz-gradient)
+ - [Lipschitz Smoothness, Strong Convexity and the Hessian](https://math.stackexchange.com/questions/673898/lipschitz-smoothness-strong-convexity-and-the-hessian)
+ - [Lipschitz continuous gradient](https://xingyuzhou.org/blog/notes/Lipschitz-gradient)
 
-**
+***
 
 ## Centralisation du gradient
 
@@ -145,7 +138,7 @@ $$k_{1}$$ et $$k_{2}$$ étant les dimensions des noyaux de convolutions.
 
 - Pour une couche $$W \in \mathbb{R}^{M \times N}$$, on notera $$w_{i} \in \mathbb{R}^{M}, i = 1, \dots, N$$ sa $$i$$-ième colonne.
 
-### "Convention matricielle"
+### Convention matricielle
 
 pour un vecteur d'entrée $$X$$ de la couche $$W$$, les features en sortie de la couche sont alors données par la formule suivante.
 
@@ -277,9 +270,9 @@ $$
 
 On a donc bien le même résultat, peut importe la définition. Passons donc maintenant aux propriétés de l'opérateur $$\mathbf{P}$$.
 
-### "Théorème"
+### Théorème
 
-    L'opérateur $$\mathbf{P}$$ est idempotent et définie une projection sur l'hyperplan orthogonal au vecteur unitaire $$\mathbf{e}^{T}$$.
+L'opérateur $$\mathbf{P}$$ est idempotent et définie une projection sur l'hyperplan orthogonal au vecteur unitaire $$\mathbf{e}^{T}$$.
 
 Montrons premièrement que c'est un opérateur idempotent. Pour cela il suffit de montrer que $$P^{2} = P = P^{T}$$. Tout d'abord, on a $$P^{T} = (\mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e})^{T} = \mathbb{I}_{M}^{T} - (\mathbf{e} \cdot \mathbf{e}^{T})^{T} = \mathbb{I}_{M} - \mathbf{e} \cdot \mathbf{e}^{T} = P$$.
 
@@ -339,7 +332,7 @@ Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a d
 - un vecteur unitaire $$\mathbf{e}_{W} = \frac{1}{\sqrt{M}}\cdot \mathbb{1}_{W}$$,
 - et un opérateur de centralisation $$\Phi_{CG}$$ projetant sur $$\ker (\mathbf{e}_{W} \otimes \mathbf{e}_{W})$$ orthogonalement à $$\mathbf{e}_{W}^{T}$$.
 
-![cg](./images/centralized_gradient.svg)
+ {% responsive_image path: assets/img/centralized_gradient.svg class: "img-fluid rounded z-depth-1" zoomable: true %}
 
 Notons $$W^{t}$$ la matrice des poids à l'itération $$t$$ pour une couche fixée. Une équation de l'hyperplan sur lequel projette $$\Phi_{CG}$$ est la suivante.
 
