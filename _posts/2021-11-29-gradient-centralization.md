@@ -20,7 +20,6 @@ authors:
 toc:
   - name: Abstract
   - name: Introduction
-    - name: Infos
   - name: Centralisation du gradient
   - name: Notations et conventions
     # if a section has subsections, you can add them as follows:
@@ -340,12 +339,12 @@ Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a d
 - un vecteur unitaire $$\mathbf{e}_{W} = \frac{1}{\sqrt{M}}\cdot \mathbb{1}_{W}$$,
 - et un opérateur de centralisation $$\Phi_{CG}$$ projetant sur $$\ker (\mathbf{e}_{W} \otimes \mathbf{e}_{W})$$ orthogonalement à $$\mathbf{e}_{W}^{T}$$.
 
-<!-- ![cg](./images/centralized_gradient.svg) -->
+![cg](./images/centralized_gradient.svg)
 
 Notons $$W^{t}$$ la matrice des poids à l'itération $$t$$ pour une couche fixée. Une équation de l'hyperplan sur lequel projette $$\Phi_{CG}$$ est la suivante.
 
 $$
-    \mathcal{H} := \left\{ -w \in \mathbb{R}^{M} \, : \, \mathbf{e}_{W}^{T} \cdot w  = 0 \right\}
+\mathcal{H} := \left\{ -w \in \mathbb{R}^{M} \, : \, \mathbf{e}_{W}^{T} \cdot w  = 0 \right\}
 $$
 
 
