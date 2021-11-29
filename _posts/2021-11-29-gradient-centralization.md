@@ -89,25 +89,25 @@ L'article apporte deux contributions :
     1. contraint la fonction de perte en ajoutant une nouvelle contrainte sur le vecteur de poids, ce qui permet de régulariser l'espace des poids ainsi de celui des features de sortie.
     2. Améliore les propriétés lipschitzienne de la fonction de perte.
 
-!!! note "Définition"
+### Définition
 
-    1. Une fonction $$f$$ entre deux espaces métriques $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz s'il existe une constante $$C >0$$ telle que :
+1. Une fonction $$f$$ entre deux espaces métriques $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz s'il existe une constante $$C >0$$ telle que :
 
-    $$
-        \forall x, y \in X, d_{2}(f(x), f(y)) \leq C d_{1}(x,y).
-    $$
+$$
+    \forall x, y \in X, d_{2}(f(x), f(y)) \leq C d_{1}(x,y).
+$$
 
-    En particulier, la fonction $$f$$ est continue.
+En particulier, la fonction $$f$$ est continue.
 
-    2. Une fonction différentiable $$f$$ entre deux espaces normés $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz lisse s'il existe une constante $$C >0$$ telle que :
+2. Une fonction différentiable $$f$$ entre deux espaces normés $$f \, : \, (X, d_{1}) \rightarrow (Y, d_{2})$$ est lipschitz lisse s'il existe une constante $$C >0$$ telle que :
 
-    $$
-        \forall x, y \in X, \| \nabla f(x) - \nabla f(y) \| \leq C \| x - y \|.
-    $$
+$$
+    \forall x, y \in X, \| \nabla f(x) - \nabla f(y) \| \leq C \| x - y \|.
+$$
 
-    ($$C$$-Lipschitz continuous gradient)
+($$C$$-Lipschitz continuous gradient)
 
-    3. La constante $$C$$ est appélée la constante de Lipschitz de $$f$$.
+3. La constante $$C$$ est appélée la constante de Lipschitz de $$f$$.
 
 ### Infos
 
@@ -214,33 +214,33 @@ En d'autres termes, pour une matrice de poids, on calcule la moyenne de chaque v
 
 ## Formulation matricielle et représentation géométrique
 
-!!! note "Définition : Produit de Kronecker"
+### Définition : Produit de Kronecker
 
-    Pour $$x$$ et $$y$$ deux vecteurs colonnes de dimensions $$M$$, respectivement $$N$$, le prodouit de Kronecker de $$x$$ et $$y$$, noté $$x \cdot y^{T}$$ ou $$x \otimes y$$ est alors défini de la façon suivante.
+Pour $$x$$ et $$y$$ deux vecteurs colonnes de dimensions $$M$$, respectivement $$N$$, le prodouit de Kronecker de $$x$$ et $$y$$, noté $$x \cdot y^{T}$$ ou $$x \otimes y$$ est alors défini de la façon suivante.
 
-    $$
-        x \cdot y^{T} := \left[ x_{i} \cdot y_{j}\right]
-    $$
+$$
+    x \cdot y^{T} := \left[ x_{i} \cdot y_{j}\right]
+$$
 
-    Où $$\left[ x_{i} \cdot y_{j}\right] \in \mathbb{R}^{M \times N}$$ est la matrice dont les coefficients en les coordonnées $$(i,j)$$ sont données par le produit $$x_{i} \cdot y_{j}$$.
+Où $$\left[ x_{i} \cdot y_{j}\right] \in \mathbb{R}^{M \times N}$$ est la matrice dont les coefficients en les coordonnées $$(i,j)$$ sont données par le produit $$x_{i} \cdot y_{j}$$.
 
-    Ce produit n'est pas commutatif. C'est un cas particulier de produit tensoriel, [voir ici](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_de_Kronecker).
+Ce produit n'est pas commutatif. C'est un cas particulier de produit tensoriel, [voir ici](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_de_Kronecker).
 
 Dans le cas qui nous intéresse ici, on applique le produit de Kronecker au vecteur suivant : $$\mathbf{e}$$.
 
 $$
-    \begin{align*}
-    \mathbf{e} \otimes \mathbf{e} & := \frac{1}{\sqrt{M}}\cdot \mathbb{1} \otimes \frac{1}{\sqrt{M}}\cdot \mathbb{1} \\
-                                  & = \frac{1}{M}\cdot \mathbb{1} \otimes \mathbb{1} \\
-                                  & = \frac{1}{M}\cdot \mathbb{1} \otimes \mathbb{1} \\
-                                  & = \frac{1}{M}\cdot\left[
-                                        \begin{array}{ccc}
-                                            1 & \cdots & 1 \\
-                                            \vdots &  & \vdots \\
-                                            1 & \cdots & 1
-                                        \end{array}
-                                        \right]
-    \end{align*}
+\begin{align*}
+\mathbf{e} \otimes \mathbf{e} & := \frac{1}{\sqrt{M}}\cdot \mathbb{1} \otimes \frac{1}{\sqrt{M}}\cdot \mathbb{1} \\
+                                & = \frac{1}{M}\cdot \mathbb{1} \otimes \mathbb{1} \\
+                                & = \frac{1}{M}\cdot \mathbb{1} \otimes \mathbb{1} \\
+                                & = \frac{1}{M}\cdot\left[
+                                    \begin{array}{ccc}
+                                        1 & \cdots & 1 \\
+                                        \vdots &  & \vdots \\
+                                        1 & \cdots & 1
+                                    \end{array}
+                                    \right]
+\end{align*}
 $$
 
 Ici, $$\mathbb{1} \otimes \mathbb{1}$$ est donc une matrice carrée de taille $$M \times M$$ où tous les coefficients sont égaux à $$1$$.
@@ -278,7 +278,7 @@ $$
 
 On a donc bien le même résultat, peut importe la définition. Passons donc maintenant aux propriétés de l'opérateur $$\mathbf{P}$$.
 
-!!! note "Théorème"
+### "Théorème"
 
     L'opérateur $$\mathbf{P}$$ est idempotent et définie une projection sur l'hyperplan orthogonal au vecteur unitaire $$\mathbf{e}^{T}$$.
 
@@ -330,11 +330,10 @@ $$
 
 ## Application à la descente du gradient
 
-!!! attention "Attention"
 
-    On rappelle ici que la couche dense ou convolutive sur laquelle on opère **est fixée**.
+On rappelle ici que la couche dense ou convolutive sur laquelle on opère **est fixée**.
 
-    Pour un réseau de neurones, **on a donc un opérateur de centralisation $$\Phi_{CG}$$, par couche dense et convolutive**.
+Pour un réseau de neurones, **on a donc un opérateur de centralisation $$\Phi_{CG}$$, par couche dense et convolutive**.
 
 Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a donc :
 
