@@ -333,7 +333,7 @@ Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a d
 - et un opérateur de centralisation $$\Phi_{CG}$$ projetant sur $$\ker (\mathbf{e}_{W} \otimes \mathbf{e}_{W})$$ orthogonalement à $$\mathbf{e}_{W}^{T}$$.
 
 
-{% svg assets/img/centralized_gradient.svg %}
+{% svg ./img/2021-11-29-centralized_gradient.svg %}
 
 Notons $$W^{t}$$ la matrice des poids à l'itération $$t$$ pour une couche fixée. Une équation de l'hyperplan sur lequel projette $$\Phi_{CG}$$ est la suivante.
 
