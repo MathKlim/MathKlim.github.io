@@ -79,7 +79,7 @@ panelbear_analytics: XXXXXXXXX # panelbear analytics site ID
 # Blog
 # -----------------------------------------------------------------------------
 
-blog_name: Math's website  # your blog must have a name for it to show up in the nav bar
+blog_name: Math's blog  # your blog must have a name for it to show up in the nav bar
 blog_description: Me, myself, and I. Mathematics, Neural Networks, and so on.
 permalink: /blog/:year/:title/
 

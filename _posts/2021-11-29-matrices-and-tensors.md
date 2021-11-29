@@ -1,15 +1,15 @@
 ---
 layout: distill
-title: Matrices, Tensor, and Machine Learning, a crash course (EN)
-description: an example of a distill-style blog post and main elements
-date: 2021-05-22
+title: Matrices, Tensors, and Machine Learning, a crash course (EN)
+description: What the hell is a tensor, and why do we care ?
+date: 2021-11-29
 
 authors:
   - name: Mathieu Klimczak
     affiliations:
       name: CITC-EuraRFID
 
-bibliography: 2018-12-22-distill.bib
+# bibliography: 2018-12-22-distill.bib
 
 # Optionally, you can add a table of contents to your post.
 # NOTES:
