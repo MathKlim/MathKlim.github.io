@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About Me
 permalink: /
 description: R&D Engineer, Machine Learning, Computer Vision
 
@@ -18,3 +18,5 @@ social: true  # includes social icons at the bottom of the page
 ---
 
 Bienvenu sur cette page. Pour l'instant c'est le bazar, mais je ferai en sorte de nettoyer tout ça.
+
+Posts will be either on english (EN), or french (FR), depending on how I started thinking about it.
