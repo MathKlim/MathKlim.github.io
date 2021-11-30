@@ -206,6 +206,8 @@ En d'autres termes, pour une matrice de poids, on calcule la moyenne de chaque v
 
 ## Formulation matricielle et représentation géométrique
 
+---
+
 ### Définition : Produit de Kronecker
 
 Pour $$x$$ et $$y$$ deux vecteurs colonnes de dimensions $$M$$, respectivement $$N$$, le prodouit de Kronecker de $$x$$ et $$y$$, noté $$x \cdot y^{T}$$ ou $$x \otimes y$$ est alors défini de la façon suivante.
@@ -217,6 +219,8 @@ $$
 Où $$\left[ x_{i} \cdot y_{j}\right] \in \mathbb{R}^{M \times N}$$ est la matrice dont les coefficients en les coordonnées $$(i,j)$$ sont données par le produit $$x_{i} \cdot y_{j}$$.
 
 Ce produit n'est pas commutatif. C'est un cas particulier de produit tensoriel, [voir ici](https://fr.wikipedia.org/wiki/Produit_matriciel#Produit_de_Kronecker).
+
+---
 
 Dans le cas qui nous intéresse ici, on applique le produit de Kronecker au vecteur suivant : $$\mathbf{e}$$.
 
@@ -269,6 +273,8 @@ $$
 $$
 
 On a donc bien le même résultat, peut importe la définition. Passons donc maintenant aux propriétés de l'opérateur $$\mathbf{P}$$.
+
+
 
 ### Théorème
 
