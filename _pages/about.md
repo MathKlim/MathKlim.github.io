@@ -17,6 +17,6 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Bienvenu sur cette page. Pour l'instant c'est le bazar, mais je ferai en sorte de nettoyer tout ça.
+Bienvenu sur cette page. Pour l'instant c'est le bazar, mais je ferai en sorte de nettoyer tout ça. Peut être.
 
 Posts will be either on english (EN), or french (FR), depending on how I started thinking about it.
