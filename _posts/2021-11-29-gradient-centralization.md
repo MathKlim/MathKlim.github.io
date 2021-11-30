@@ -332,7 +332,7 @@ Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a d
 - un vecteur unitaire $$\mathbf{e}_{W} = \frac{1}{\sqrt{M}}\cdot \mathbb{1}_{W}$$,
 - et un opérateur de centralisation $$\Phi_{CG}$$ projetant sur $$\ker (\mathbf{e}_{W} \otimes \mathbf{e}_{W})$$ orthogonalement à $$\mathbf{e}_{W}^{T}$$.
 
-![Alt text](https://MathKlim.github.io/master/assets/img/geom_cg.svg?sanitize=true)
+![Alt text](https://raw.githubusercontent.com/MathKlim/MathKlim.github.io/master/assets/img/geom_cg.svg?sanitize=true)
 
 
 Notons $$W^{t}$$ la matrice des poids à l'itération $$t$$ pour une couche fixée. Une équation de l'hyperplan sur lequel projette $$\Phi_{CG}$$ est la suivante.
