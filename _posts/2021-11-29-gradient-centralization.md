@@ -334,6 +334,10 @@ Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a d
 
 {% responsive_image path: assets/img/cg.png class: "img-fluid rounded z-depth-1" zoomable: true %}
 
+![Alt text](https://raw.githubusercontent.com/MathKlim/MathKlim.github.io/master/assets/img/geom_cg.svg?sanitize=true)
+<img src="https://raw.githubusercontent.com/MathKlim/MathKlim.github.io/master/assets/img/geom_cg.svg?sanitize=true">
+
+
 Notons $$W^{t}$$ la matrice des poids à l'itération $$t$$ pour une couche fixée. Une équation de l'hyperplan sur lequel projette $$\Phi_{CG}$$ est la suivante.
 
 $$
