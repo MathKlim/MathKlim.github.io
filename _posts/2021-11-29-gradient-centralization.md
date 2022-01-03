@@ -338,10 +338,10 @@ $$
     \mathbf{P} \, : \, \mathbb{R}^{M\times N} \longrightarrow \mathbb{R}^{M\times N}
 $$
 
-Remarquez ici que le nombres de colonnes, bien que fixée à $$N$$ n'a que peu d'importance
+Remarquez ici que le nombres de colonnes, bien que fixé à $$N$$ n'a que peu d'importance
 
 $$
-    \mathbb{R}^{M\times N} = \ker(\mathbf{e} \otimes \mathbf{e})^{M \times N} \oplus \left( \left\langle \mathbb{1}_{M} \right\rangle \oplus \cdots \oplus \left\langle \mathbb{1}_{M} \right\rangle \right)
+    \mathbb{R}^{M\times N} = \left\( \ker(\mathbf{e} \otimes \mathbf{e}) \oplus \left\langle \mathbb{1}_{M} \right\rangle \right\) ^{M \times N}
 $$
 
 
