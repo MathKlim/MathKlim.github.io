@@ -246,12 +246,12 @@ Remarquons que dans l'autre sens, le produit scalaire $$\mathbf{e}^{T} \cdot \ma
 Pour une matrice de poids $$W$$, de gradient $$\nabla_{W}\mathcal{L}_{\vartheta}$$, l'opérateur de centralisation du gradient, noté $$\Phi_{CG}$$, est alors défini comme suit.
 
 $$
-    \Phi_{CG}(\nabla_{W}\mathcal{L}_{\vartheta}) := \mathbf{P}(\nabla_{W}\mathcal{L}_{\vartheta})
+    \Phi_{CG}(\nabla_{W}\mathcal{L}_{\vartheta}) := P(\nabla_{W}\mathcal{L}_{\vartheta})
 $$
 
-Où $$\mathbf{P} := \mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e}$$. $$\mathbb{I}_{M}$$ étant la matrice identité de taille $$M$$.
+Où $$P := \mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e}$$. $$\mathbb{I}_{M}$$ étant la matrice identité de taille $$M$$.
 
-Avant de voir les propriétés de l'opérateur $$\mathbf{P}$$, vérifions que l'on obtient bien le même résultat avec cette définition que la précédente.
+Avant de voir les propriétés de l'opérateur $$P$$, vérifions que l'on obtient bien le même résultat avec cette définition que la précédente.
 
 On a $$\nabla_{W}\mathcal{L}_{\vartheta} := \left[ \nabla_{w_{1}}\mathcal{L}_{\vartheta} , \cdots, \nabla_{w_{N}}\mathcal{L}_{\vartheta} \right]$$, d'où
 
@@ -272,15 +272,20 @@ $$
     \end{align*}
 $$
 
-On a donc bien le même résultat, peut importe la définition. Passons donc maintenant aux propriétés de l'opérateur $$\mathbf{P}$$.
+On a donc bien le même résultat, peu importe la définition. Passons donc maintenant aux propriétées de l'opérateur $$P$$.
 
 
 
 ### Théorème
 
-L'opérateur $$\mathbf{P}$$ est idempotent et définie une projection sur l'hyperplan orthogonal au vecteur unitaire $$\mathbf{e}^{T}$$.
+L'opérateur $$P$$ est idempotent et définit une projection sur l'hyperplan orthogonal au vecteur unitaire $$\mathbf{e}^{T}$$.
 
-Montrons premièrement que c'est un opérateur idempotent. Pour cela il suffit de montrer que $$P^{2} = P = P^{T}$$. Tout d'abord, on a $$P^{T} = (\mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e})^{T} = \mathbb{I}_{M}^{T} - (\mathbf{e} \cdot \mathbf{e}^{T})^{T} = \mathbb{I}_{M} - \mathbf{e} \cdot \mathbf{e}^{T} = P$$.
+
+#### Preuve
+
+Montrons premièrement que c'est un opérateur idempotent. Pour cela il suffit de montrer que $$P^{2} = P = P^{T}$$.
+
+Tout d'abord, on a $$P^{T} = (\mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e})^{T} = \mathbb{I}_{M}^{T} - (\mathbf{e} \cdot \mathbf{e}^{T})^{T} = \mathbb{I}_{M} - \mathbf{e} \cdot \mathbf{e}^{T} = P$$.
 
 D'où,
 
@@ -312,21 +317,32 @@ $$
     \ker (\mathbf{e} \otimes \mathbf{e}) = \left\{ (x_{1}, \dots, x_{M}) \in \mathbb{R}^{M} \, : \, \sum_{i=1}^{M} x_{i} = 0 \right\}
 $$
 
-Cela définit bien un hyperplan, **l'hyperplan des vecteurs centrés**, ie de moyenne nulle. De plus, on a $$\mathbf{e}^{T}\mathbf{P} = \mathbf{e}^{T}(\mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e}) = \mathbf{e}^{T} - (\mathbf{e}^{T} \cdot \mathbf{e}) \cdot \mathbf{e}^{T} = \mathbf{e}^{T} -  \mathbf{e}^{T} = 0$$.
+Cela définit bien un hyperplan, **l'hyperplan des vecteurs centrés**, ie de moyenne nulle. De plus, on a $$\mathbf{e}^{T}P = \mathbf{e}^{T}(\mathbb{I}_{M} - \mathbf{e} \otimes \mathbf{e}) = \mathbf{e}^{T} - (\mathbf{e}^{T} \cdot \mathbf{e}) \cdot \mathbf{e}^{T} = \mathbf{e}^{T} -  \mathbf{e}^{T} = 0$$.
 
-**Donc** $$\mathbf{P}$$ **est un opérateur de projection sur l'hyperplan orthogonal au vecteur unitaire** $$\mathbf{e}^{T}$$.
+**Donc** $$P$$ **est un opérateur de projection sur l'hyperplan orthogonal au vecteur unitaire** $$\mathbf{e}^{T}$$.
 
-$$
-    P \, : \, \mathbb{R}^{M\times N} \longrightarrow \mathbb{R}^{M\times N}
-$$
+Notons alors par $$\left\langle \mathbb{1}_{M} \right\rangle$$ la droite vectorielle engendrée par le vecteur de dimension $$M$$ $$\mathbb{1}_{M} := (1, \dots, 1)$$. On a alors la somme directe suivante.
 
 $$
-    \mathbb{R}^{M\times N} = \ker(\mathbf{e} \otimes \mathbf{e})^{M \times N} \oplus \left( \left\langle \mathbb{1}_{M} \right\rangle \oplus \cdots \oplus \left\langle \mathbb{1}_{M} \right\rangle \right)
+    \mathbb{R}^{M} = \ker(\mathbf{e} \otimes \mathbf{e}) \oplus \left\langle \mathbb{1}_{M} \right\rangle
 $$
+
 
 ***
 
 ## Application à la descente du gradient
+
+L'opérateur de projection orthogonale définie plus haut ne s'applique que sur des vecteurs colonnes. Pour l'appliquer au gradient de la fonction de perte associée à un réseau de neurones on l'étend par linéarité en un endomorphisme de l'espace vectoriel des matrices de tailles $M \times N$.
+
+$$
+    \mathbf{P} \, : \, \mathbb{R}^{M\times N} \longrightarrow \mathbb{R}^{M\times N}
+$$
+
+Remarquez ici que le nombres de colonnes, bien que fixée à $$N$$ n'a que peu d'importance
+
+$$
+    \mathbb{R}^{M\times N} = \ker(\mathbf{e} \otimes \mathbf{e})^{M \times N} \oplus \left( \left\langle \mathbb{1}_{M} \right\rangle \oplus \cdots \oplus \left\langle \mathbb{1}_{M} \right\rangle \right)
+$$
 
 
 On rappelle ici que la couche dense ou convolutive sur laquelle on opère **est fixée**.
@@ -335,7 +351,7 @@ Pour un réseau de neurones, **on a donc un opérateur de centralisation $$\Phi_
 
 Pour chaque couche de matrice de poids $$W \in \mathbb{R}^{M \times N}$$, on a donc :
 
-- un vecteur unitaire $$\mathbf{e}_{W} = \frac{1}{\sqrt{M}}\cdot \mathbb{1}_{W}$$,
+- un vecteur unitaire $$\mathbf{e}_{W} = \frac{1}{\sqrt{M}}\cdot \mathbb{1}_{M}$$,
 - et un opérateur de centralisation $$\Phi_{CG}$$ projetant sur $$\ker (\mathbf{e}_{W} \otimes \mathbf{e}_{W})$$ orthogonalement à $$\mathbf{e}_{W}^{T}$$.
 
 ![Alt text](https://raw.githubusercontent.com/MathKlim/MathKlim.github.io/master/assets/img/geom_cg.svg?sanitize=true)
