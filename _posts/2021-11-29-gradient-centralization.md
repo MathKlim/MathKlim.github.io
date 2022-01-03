@@ -341,7 +341,7 @@ $$
 Remarquez ici que le nombres de colonnes, bien que fixé à $$N$$ n'a que peu d'importance
 
 $$
-    \mathbb{R}^{M\times N} = \left\lbrace \ker(\mathbf{e} \otimes \mathbf{e}) \oplus \left\langle \mathbb{1}_{M} \right\rangle \right\rbrace ^{M \times N}
+    \mathbb{R}^{M\times N} = \left( \ker(\mathbf{e} \otimes \mathbf{e}) \oplus \left\langle \mathbb{1}_{M} \right\rangle \right) ^{M \times N}
 $$
 
 
